@@ -4,14 +4,12 @@
 
 body {
 	background-image: url(./Background.png);
-	margin-right: 0;
-  margin-left: 0;
-  margin-bottom: 0;
+	margin: 0 auto;
 }
 
 html {
   min-width: 199px;
-  max-width: 1200px;
+  max-width: 1600px;
   padding: 0;
   margin: 0 auto;
 }
@@ -36,10 +34,6 @@ html {
 	color: white;
 	font-weight: bold;
 	cursor:pointer;
-}
-
-.level:hover {
-	background-image: : url(./Rectangle.png);
 }
 
 #level__light,
@@ -83,6 +77,10 @@ html {
 	display: flex;
 	flex-direction: row;
 	perspective: 1000;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-content: center;
+	height: 100vh;
 }
 
 .flip {
@@ -100,6 +98,11 @@ html {
   z-index: 2;
 }
 
+.card__hover {
+	filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
+	transform: rotate(-3.08deg);
+}
+
 .backside{
   transform: rotateY(180deg);
 }
@@ -110,4 +113,10 @@ html {
 
 .hide {
   display: none;
+}
+
+/*@media screen and (min-width: 800px) and (max-width: 1400px) {
+	.section__tablemedium {
+		width: 700px;
+	}
 }

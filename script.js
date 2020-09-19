@@ -8,13 +8,24 @@ let tableHard = document.getElementById('tablehard');
 let firstPage = document.getElementById('firstpage');
 let levels = document.getElementsByName('level');
 let body = document.getElementById('body');
+let card = document.querySelectorAll('.card');
+let frontCard = document.querySelectorAll('.frontcard');
+let backCard = document.querySelectorAll('.backcard');
+
+/*переход со стартовой страницы к столам в зависимости от сложности*/
 
 startButton.addEventListener('click', event => {
 	for (let i = 0; i < levels.length; i++) {
-		if (levels[0].checked) {
+		if (levels[0].checked) {  /*легкий уровень*/
 			tableLight.classList.remove('section__levellight');
 			tableLight.classList.add('table');
 			firstPage.classList.add('section__disappear');
+
+			card.forEach((item, m) => {
+				card[m].onmouseover = () => frontCard[m].classList.add('card__hover');
+  				card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
+			})
+			
 
 			let allBacksideImages  = ['./cardbug.png', './cardgameover.png', './cardgameover.png'];
 			let backsideImgLight = document.querySelectorAll('.backside__light');
@@ -37,10 +48,15 @@ startButton.addEventListener('click', event => {
 
 			
 		} 
-		else if(levels[1].checked) {
+		else if(levels[1].checked) {  /*средний уровень*/
 			tableMedium.classList.remove('section__levelmedium');
 			tableMedium.classList.add('table');
 			firstPage.classList.add('section__disappear');
+
+			card.forEach((item, m) => {
+				card[m].onmouseover = () => frontCard[m].classList.add('card__hover');
+  				card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
+			})
 
 			let allBacksideImages  = ['./cardbug.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png'];
 			let backsideImgMedium = document.querySelectorAll('.backside__medium');
@@ -61,10 +77,15 @@ startButton.addEventListener('click', event => {
 				backsideImgMedium[i].src = newArray[i];
 			})
 		} 
-		else if (levels[2].checked){
+		else if (levels[2].checked) { /*сложный уровень*/
 			tableHard.classList.remove('section__levelhard');
 			tableHard.classList.add('table');
 			firstPage.classList.add('section__disappear');
+
+			card.forEach((item, m) => {
+				card[m].onmouseover = () => frontCard[m].classList.add('card__hover');
+  				card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
+			})
 
 			let allBacksideImages  = ['./cardbug.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png'];
 			let backsideImgHard = document.querySelectorAll('.backside__hard');
@@ -90,31 +111,30 @@ startButton.addEventListener('click', event => {
 	}			
 });
 
+/*переворот карты и обновление страницы*/
 
-let card = document.querySelectorAll('.card');
-			let frontCard = document.querySelectorAll('.frontcard');
-			let backCard = document.querySelectorAll('.backcard');
-			let a = false;
+card.forEach((item, n) => { 
+	card[n].addEventListener('click', event => {
+        card[n].classList.add('flip');
+        backCard[n].classList.remove('backcard');
+        frontCard[n].classList.add('backcard');
+	    card[n].addEventListener('click', click)
+	});               
+});
 
-			card.forEach((index, n) => { 
-			let cardFlip = card[n].addEventListener('click', event => {
-                        card[n].classList.add('flip');
-                        backCard[n].classList.remove('backcard');
-                        frontCard[n].classList.add('backcard');
-                        let a = true;
-	                        if (a === true) {
-	                        card[n].addEventListener('click', event => {
-	                        	firstPage.classList.remove('section__disappear');
-	                        	tableLight.classList.add('section__levellight');
-	                        	tableLight.classList.remove('table');
-	                        	tableMedium.classList.add('section__levelmedium');
-	                        	tableMedium.classList.remove('table');
-	                        	tableHard.classList.add('section__levelhard'); 
-	                        	tableHard.classList.remove('table');
-	                        	card[n].classList.remove('flip');
-                        		backCard[n].classList.add('backcard');
-                        		frontCard[n].classList.remove('backcard');
-	                        	})
-	                        } 
-	                    });               
-			});
+const click = () => {
+	firstPage.classList.remove('section__disappear');
+	tableLight.classList.add('section__levellight');
+	tableLight.classList.remove('table');
+	tableMedium.classList.add('section__levelmedium');
+	tableMedium.classList.remove('table');
+	tableHard.classList.add('section__levelhard'); 
+	tableHard.classList.remove('table');
+
+		card.forEach((item, index) => {
+			card[index].classList.remove('flip');
+			backCard[index].classList.add('backcard');
+			frontCard[index].classList.remove('backcard');
+			card[index].removeEventListener('click', click);
+		})
+}
