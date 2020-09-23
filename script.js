@@ -1,13 +1,9 @@
-/*let levelLight = document.getElementById('level__light');
-let levelMedium = document.getElementById('level__medium');
-let levelHard = document.getElementById('level__hard');*/
 let startButton = document.getElementById('firstpage__startbutton');
 let tableLight = document.getElementById('tablelight');
 let tableMedium = document.getElementById('tablemedium');
 let tableHard = document.getElementById('tablehard');
 let firstPage = document.getElementById('firstpage');
 let levels = document.getElementsByName('level');
-let body = document.getElementById('body');
 let card = document.querySelectorAll('.card');
 let frontCard = document.querySelectorAll('.frontcard');
 let backCard = document.querySelectorAll('.backcard');
@@ -118,9 +114,13 @@ card.forEach((item, n) => {
         card[n].classList.add('flip');
         backCard[n].classList.remove('backcard');
         frontCard[n].classList.add('backcard');
-	    card[n].addEventListener('click', click)
+        element.className = 'newelement';
+		document.body.appendChild(element);
+		element.addEventListener('click', click);
 	});               
 });
+
+let element = document.createElement('div');
 
 const click = () => {
 	firstPage.classList.remove('section__disappear');
@@ -130,6 +130,7 @@ const click = () => {
 	tableMedium.classList.remove('table');
 	tableHard.classList.add('section__levelhard'); 
 	tableHard.classList.remove('table');
+	document.body.removeChild(element);
 
 		card.forEach((item, index) => {
 			card[index].classList.remove('flip');

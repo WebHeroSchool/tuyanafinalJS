@@ -14,6 +14,11 @@ html {
   margin: 0 auto;
 }
 
+.section__firstpage {
+	padding-left: 30px;
+	padding-top: 50px;
+}
+
 .subtitle {
 	font-size: 50px;
 	font-weight: bold;
@@ -75,11 +80,24 @@ html {
 
 .table {
 	display: flex;
-	flex-direction: row;
-	perspective: 1000;
 	justify-content: center;
 	flex-wrap: wrap;
 	align-content: center;
+}
+
+.section__tablemedium {
+	height: 100vh;
+	width: 700px;
+	margin: auto;
+}
+
+.section__tablehard {
+	height: 100vh;
+	width: 1150px;
+	margin: auto;
+}
+
+.section__tablelight {
 	height: 100vh;
 }
 
@@ -115,8 +133,30 @@ html {
   display: none;
 }
 
-/*@media screen and (min-width: 800px) and (max-width: 1400px) {
-	.section__tablemedium {
-		width: 700px;
+@media screen and (min-width: 610px) and (max-width: 1400px) {
+	.frontside {
+		height: 240px;
+		width: 160px;
 	}
+
+	.backside {
+		height: 240px;
+		width: 160px;
+	}
+
+	.section__tablemedium {
+		width: 600px;
+	}
+
+	.section__tablehard {
+		width: 950px;
+	}
+}
+
+.newelement {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
