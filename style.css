@@ -19,7 +19,7 @@ html {
 	padding-top: 50px;
 }
 
-.subtitle {
+.firstpage__subtitle {
 	font-size: 50px;
 	font-weight: bold;
 	color: white;
@@ -34,7 +34,7 @@ html {
 	margin-top: 0;
 }
 
-.level {
+.firstpage__level {
 	font-size: 43px;
 	color: white;
 	font-weight: bold;
@@ -78,40 +78,40 @@ html {
 	display: none;
 }
 
-.table {
+.table__style {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	align-content: center;
 }
 
-.section__tablemedium {
+.section__levelmedium_tablemedium {
 	height: 100vh;
 	width: 700px;
 	margin: auto;
 }
 
-.section__tablehard {
+.section__levelhard_tablehard {
 	height: 100vh;
 	width: 1150px;
 	margin: auto;
 }
 
-.section__tablelight {
+.section__levellight_tablelight {
 	height: 100vh;
 }
 
-.flip {
+.card__flip {
   transform: rotateY(180deg);
 }
 
-.card {
+.section__card {
   transition: 0.6s;
   transform-style: preverse-3d;
   position: relative;
 }
 
-.frontside {
+.card__front_img {
   backface-visibility: hidden;
   z-index: 2;
 }
@@ -121,34 +121,34 @@ html {
 	transform: rotate(-3.08deg);
 }
 
-.backside{
+.card__back_img{
   transform: rotateY(180deg);
 }
 
-.backcard {
+.card__back {
   display: none;
 }
 
-.hide {
+/*.hide {
   display: none;
-}
+}*/
 
 @media screen and (min-width: 610px) and (max-width: 1400px) {
-	.frontside {
+	.card__front_img {
 		height: 240px;
 		width: 160px;
 	}
 
-	.backside {
+	.card__back_img {
 		height: 240px;
 		width: 160px;
 	}
 
-	.section__tablemedium {
+	.section__levelmedium_tablemedium {
 		width: 600px;
 	}
 
-	.section__tablehard {
+	.section__levelhard_tablehard {
 		width: 950px;
 	}
 }
