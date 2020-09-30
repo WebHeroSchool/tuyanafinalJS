@@ -16,99 +16,52 @@ startButton.addEventListener('click', event => {
 			tableLight.classList.remove('section__levellight');
 			tableLight.classList.add('table__style');
 			firstPage.classList.add('section__disappear');
-			let allBacksideImages  = ['./cardbug.png', './cardgameover.png', './cardgameover.png'];
-			let backsideImgLight = document.querySelectorAll('.back__img_light');
-
-
-			function prepareTable () {
-				card.forEach((item, m) => {
-					card[m].onmouseover = () => frontCard[m].classList.add('card__hover');
-	  				card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
-				})
-				
-				function shuffleImages (arr) {
-					let j, temp;
-	                    for (let i = arr.length - 1; i>0; i--) {
-	                    j = Math.floor(Math.random() * (i+1));
-	                    temp = arr[j];
-	                    arr[j] = arr[i];
-	                    arr[i] = temp;
-	                    }
-	                    return arr;
-				}
-				let newArray = shuffleImages(allBacksideImages);
-
-				backsideImgLight.forEach((elem, i) =>{
-					backsideImgLight[i].src = newArray[i];
-				})
-			}
 						
+			prepareTable('.back__img_light', 4);
+		
 		} 
 		else if(levels[1].checked) {  /*средний уровень*/
 			tableMedium.classList.remove('section__levelmedium');
 			tableMedium.classList.add('table__style');
 			firstPage.classList.add('section__disappear');
-			let allBacksideImages  = ['./cardbug.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png'];
-			let backsideImgMedium = document.querySelectorAll('.back__img_medium');
-
 			
+			prepareTable('.back__img_medium', 7);
 
-			card.forEach((item, m) => {
-				card[m].onmouseover = () => frontCard[m].classList.add('card__hover');
-  				card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
-			})
-
-			function shuffleImages (arr) {
-				let j, temp;
-                    for (let i = arr.length - 1; i>0; i--) {
-                    j = Math.floor(Math.random() * (i+1));
-                    temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
-                    }
-                    return arr;
-			}
-			let newArray = shuffleImages(allBacksideImages);
-
-			backsideImgMedium.forEach((elem, i) =>{
-				backsideImgMedium[i].src = newArray[i];
-			})
 		} 
 		else if (levels[2].checked) { /*сложный уровень*/
 			tableHard.classList.remove('section__levelhard');
 			tableHard.classList.add('table__style');
 			firstPage.classList.add('section__disappear');
-			let allBacksideImages  = ['./cardbug.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png', './cardgameover.png'];
-			let backsideImgHard = document.querySelectorAll('.back__img_hard');
 			
-			
+			prepareTable('.back__img_hard', 11);
 
-			
-			card.forEach((item, m) => {
-				card[m].onmouseover = () => frontCard[m].classList.add('card__hover');
-  				card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
-			})
-
-			function shuffleImages (arr) {
-				let j, temp;
-                    for (let i = arr.length - 1; i>0; i--) {
-                    j = Math.floor(Math.random() * (i+1));
-                    temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
-                    }
-                    return arr;
-			}
-			let newArray = shuffleImages(allBacksideImages);
-
-			backsideImgHard.forEach((elem, i) =>{
-				backsideImgHard[i].src = newArray[i];
-			})
 		}
-
-
 	}			
 });
+
+function prepareTable(nameClass, num) {
+				
+	let allBacksideImages  = [];
+	let backsideImg = document.querySelectorAll(nameClass);
+
+	card.forEach((item, m) => {
+		card[m].onmouseover = () => frontCard[m].classList.add('card__hover');
+	  	card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
+	})
+
+	let min = 0; let max = 2;
+	j = Math.floor(Math.random() * (max - min + 1) ) + min;
+	for (let i = 0; i < num - 1; i++) {
+		if (i === j) {
+			allBacksideImages.push('./cardbug.png');
+		} else allBacksideImages.push('./cardgameover.png');
+		console.log(j);
+	}
+	console.log(allBacksideImages);
+	backsideImg.forEach((elem, i) =>{
+		backsideImg[i].src = allBacksideImages[i];
+	})
+}
 
 /*переворот карты и обновление страницы*/
 
