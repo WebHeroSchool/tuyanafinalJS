@@ -17,7 +17,7 @@ startButton.addEventListener('click', event => {
 			tableLight.classList.add('table__style');
 			firstPage.classList.add('section__disappear');
 						
-			prepareTable('.back__img_light', 4);
+			prepareTable('.back__img_light', 4, 2);
 		
 		} 
 		else if(levels[1].checked) {  /*средний уровень*/
@@ -25,7 +25,7 @@ startButton.addEventListener('click', event => {
 			tableMedium.classList.add('table__style');
 			firstPage.classList.add('section__disappear');
 			
-			prepareTable('.back__img_medium', 7);
+			prepareTable('.back__img_medium', 7, 5);
 
 		} 
 		else if (levels[2].checked) { /*сложный уровень*/
@@ -33,13 +33,13 @@ startButton.addEventListener('click', event => {
 			tableHard.classList.add('table__style');
 			firstPage.classList.add('section__disappear');
 			
-			prepareTable('.back__img_hard', 11);
+			prepareTable('.back__img_hard', 11, 9);
 
 		}
 	}			
 });
 
-function prepareTable(nameClass, num) {
+function prepareTable(nameClass, num, max) {
 				
 	let allBacksideImages  = [];
 	let backsideImg = document.querySelectorAll(nameClass);
@@ -49,7 +49,7 @@ function prepareTable(nameClass, num) {
 	  	card[m].onmouseout = () => frontCard[m].classList.remove('card__hover');
 	})
 
-	let min = 0; let max = 2;
+	let min = 0; 
 	j = Math.floor(Math.random() * (max - min + 1) ) + min;
 	for (let i = 0; i < num - 1; i++) {
 		if (i === j) {
