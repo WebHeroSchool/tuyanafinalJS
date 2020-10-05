@@ -19,7 +19,7 @@ html {
 	padding-top: 50px;
 }
 
-.firstpage__subtitle {
+.section__subtitle {
 	font-size: 50px;
 	font-weight: bold;
 	color: white;
@@ -27,14 +27,14 @@ html {
 	margin-bottom: 10px;
 }
 
-.firstpage__text {
+.section__text {
 	font-size: 15px;
 	font-weight: bold;
 	color: white;
 	margin-top: 0;
 }
 
-.firstpage__level {
+.section__level {
 	font-size: 43px;
 	color: white;
 	font-weight: bold;
@@ -47,7 +47,7 @@ html {
 	cursor: pointer;
 }
 
-.firstpage__button {
+.section__button {
 	color: white;
 	font-size: 32px;
 	font-weight: bold;
@@ -56,13 +56,13 @@ html {
 	width: 352px;
 	height: 95px;
 }
-.img__card1 {
+.section__img_card1 {
 	position: absolute;
 	left: 726.33px;
 	top: 150px;
 }
 
-.img__card2 {
+.section__img_card2 {
 	position: absolute;
 	left: 850px;
 	top: 165px;;
@@ -111,7 +111,7 @@ html {
   position: relative;
 }
 
-.card__front_img {
+.section__img_front {
   backface-visibility: hidden;
   z-index: 2;
 }
@@ -121,21 +121,21 @@ html {
 	transform: rotate(-3.08deg);
 }
 
-.card__back_img{
+.section__img_back{
   transform: rotateY(180deg);
 }
 
-.card__back {
+.section__cardback {
   display: none;
 }
 
 @media screen and (min-width: 610px) and (max-width: 1400px) {
-	.card__front_img {
+	.section__img_front {
 		height: 240px;
 		width: 160px;
 	}
 
-	.card__back_img {
+	.section__img_back {
 		height: 240px;
 		width: 160px;
 	}
@@ -150,57 +150,57 @@ html {
 }
 
 @media screen and (min-width: 200px) and (max-width: 1000px) {
-	.firstpage__subtitle {
+	.section__subtitle {
 		font-size: 40px;
 	}
 
-	.firstpage__text {
+	.section__text {
 		font-size: 10px;
 	}
 
-	.firstpage__level {
+	.section__level {
 		font-size: 30px;
 	}
 
-	.firstpage__button {
+	.section__button {
 		width: 200px;
 		height: 60px;
 		font-size: 18px;
 	}
 
-	.img__card1 {
+	.section__img_card1 {
 		left: 300px;
 	}
 
-	.img__card2 {
+	.section__img_card2 {
 		left: 425px;
 	}
 }
 
 @media screen and (min-width: 200px) and (max-width: 820px) {
-	.img__card1 {
+	.section__img_card1 {
 		display: none;
 	}
 
-	.img__card2 {
+	.section__img_card2 {
 		display: none;
 	}
 }
 
 @media screen and (min-width: 200px) and (max-width: 650px) {
-	.firstpage__subtitle {
+	.section__subtitle {
 		font-size: 25px;
 	}
 
-	.firstpage__text {
+	.section__text {
 		font-size: 10px;
 	}
 
-	.firstpage__level {
+	.section__level {
 		font-size: 20px;
 	}
 
-	.firstpage__button {
+	.section__button {
 		width: 150px;
 		height: 45px;
 		font-size: 14px;
@@ -208,19 +208,19 @@ html {
 }
 
 @media screen and (min-width: 200px) and (max-width: 410px) {
-	.firstpage__subtitle {
+	.section__subtitle {
 		font-size: 20px;
 	}
 
-	.firstpage__text {
+	.section__text {
 		font-size: 8px;
 	}
 
-	.firstpage__level {
+	.section__level {
 		font-size: 18px;
 	}
 
-	.firstpage__button {
+	.section__button {
 		width: 120px;
 		height: 40px;
 		font-size: 12px;
